@@ -15,27 +15,26 @@ st.set_page_config(
 
 
 st.title("Soil Resistivity Calculator")
-with st.sidebar:
-    st.write("")
 #st.balloons()
 #st.snow()
 
 #======================
 # Starting data- INPUT
 #======================
-st.header("Input Parameters")
-df = pd.DataFrame({
-    "Pin Spacing (cm)": [50, 100, 150, 200, 250, 300, 400, 500],
-    "Resistance (Ω)": [22.80, 11.56, 7.46, 5.66, 4.54, 3.78, 2.88, 2.29]
-})
+with st.sidebar:
+    st.title("Input Parameters")
+    df = pd.DataFrame({
+        "Pin Spacing (cm)": [50, 100, 150, 200, 250, 300, 400, 500],
+        "Resistance (Ω)": [22.80, 11.56, 7.46, 5.66, 4.54, 3.78, 2.88, 2.29]
+    })
 
-# Editable table
-edited_df = st.data_editor(
-    df,
-    hide_index=True,
-    num_rows="dynamic",
-    use_container_width=True
-)
+    # Editable table
+    edited_df = st.data_editor(
+        df,
+        hide_index=True,
+        #num_rows="dynamic",
+        use_container_width=True,
+    )
 
 #=====================
 #Apparent Resistiity
@@ -292,6 +291,5 @@ st.download_button(
     label="📥 Export Graph Data to Excel",
     data=excel_buffer,
     file_name="apparent_resistivity_data.xlsx",
-    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    type="primary"
+    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 )
