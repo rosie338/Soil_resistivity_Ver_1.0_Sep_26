@@ -4,3 +4,4 @@ streamlit
 pandas
 sympy
 matplotlib
+openpyxl
